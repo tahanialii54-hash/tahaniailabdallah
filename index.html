@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Tajawal:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <h1>تحديات الرسم الهندسي بالحلقات البرمجية</h1>
+            <p>منصة تفاعلية متكاملة (3 تحديات رئيسية - 15 تكليف هندسي)</p>
+        </header>
+
+        <div class="dashboard-grid">
+            <!-- Sidebar Controls -->
+            <div class="glass-card">
+                <div class="section-title">
+                    <i class="fa-solid fa-list-check"></i> قائمة التحديات والتكاليف
+                </div>
+
+                <!-- Challenge Tabs (3 Challenges) -->
+                <div class="challenge-tabs">
+                    <button class="tab-btn active" onclick="switchChallenge(1)" id="tab-c1">التحدي 1</button>
+                    <button class="tab-btn" onclick="switchChallenge(2)" id="tab-c2">التحدي 2</button>
+                    <button class="tab-btn" onclick="switchChallenge(3)" id="tab-c3">التحدي 3</button>
+                </div>
+
+                <!-- Tasks List Container -->
+                <div class="tasks-list" id="tasksListContainer"></div>
+
+                <!-- Dimensions & Customization -->
+                <div class="inputs-row">
+                    <div class="control-group">
+                        <label>الطول (الأسطر):</label>
+                        <input type="number" id="inputHeight" value="5" min="1" max="30" oninput="generateShape()">
+                    </div>
+                    <div class="control-group">
+                        <label>العرض (الأعمدة):</label>
+                        <input type="number" id="inputWidth" value="5" min="1" max="30" oninput="generateShape()">
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <label>الشكل / الرمز المستخدم:</label>
+                    <select id="inputSymbol" onchange="generateShape()">
+                        <option value="*">نجمة (*)</option>
+                        <option value="■">مربع ممتلئ (■)</option>
+                        <option value="●">دائرة (●)</option>
+                        <option value="◆">معين (◆)</option>
+                        <option value="#">وسم (#)</option>
+                        <option value="X">حرف X</option>
+                        <option value="A">حرف A</option>
+                        <option value="1">رقم (1)</option>
+                    </select>
+                </div>
+
+                <button class="btn-generate" onclick="generateShape()">
+                    <i class="fa-solid fa-wand-magic-sparkles"></i> توليد الشكل الهندسي
+                </button>
+            </div>
+
+            <!-- Workspace & Output -->
+            <div class="workspace">
+                <div class="glass-card output-box">
+                    <div class="output-header">
+                        <div class="output-title" id="outputTitle">معاينة الرسم المباشر</div>
+                        <div class="action-btns">
+                            <button class="icon-btn" onclick="copyOutput()"><i class="fa-regular fa-copy"></i> نسخ النتيجة</button>
+                            <button class="icon-btn" onclick="clearConsole()"><i class="fa-solid fa-rotate-right"></i> إعادة ضبط</button>
+                        </div>
+                    </div>
+                    <div class="console-screen" id="consoleScreen">قم بتحديد التحدي والتمرين والأبعاد ثم اضغط توليد...</div>
+                </div>
+
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h3><i class="fa-solid fa-lightbulb"></i> فكرة الخوارزمية</h3>
+                        <p id="algoIdea">اختر تمريناً لعرض شرح مفصل عن فكرة الحلقات التكرارية.</p>
+                    </div>
+                    <div class="info-card">
+                        <h3><i class="fa-solid fa-code"></i> الكود البرمجي المقترح</h3>
+                        <div class="code-snippet" id="algoCode">// سيظهر الكود البرمجي هنا</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+    
+        </footer>
+    </div>
+
+    <div class="toast" id="toastNotification">تم النسخ بنجاح!</div>
+
+    <script src="script.js"></script>
+</body>
+</html>
